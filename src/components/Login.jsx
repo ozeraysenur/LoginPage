@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Form,FormGroup, Label, Input, Button, Card, CardHeader, CardBody, FormFeedback } from "reactstrap";
 
 const initialValues={
@@ -14,7 +15,7 @@ const errorMessages ={
 };
 
 export default function Login() {
-
+    const history = useHistory();
     const [formData, setFormData] = useState(initialValues);
     const[errors, setErrors] = useState({
         email:false,
@@ -60,6 +61,9 @@ export default function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if(isValid){
+            history.push("/success");
+        }
     }
 
     return (
@@ -105,7 +109,7 @@ export default function Login() {
                     />
                     {errors.terms && <FormFeedback>{errorMessages.terms}</FormFeedback>}
                 </FormGroup>
-                <Button disabled={!isValid}>Kayıt Ol</Button>
+                <Button disabled={!isValid}>Login</Button>
             </Form>
             </CardBody>
         </Card>

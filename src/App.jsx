@@ -1,13 +1,18 @@
 
-import './App.css'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
-function App() {
+import Success from "./components/Success";
 
+function App() {
   return (
-    <>
-      <Login />
-    </>
-  )
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/success" component={Success} />
+      </Switch>
+    </Router>
+  );
 }
 
-export default App
+export default App;
+
