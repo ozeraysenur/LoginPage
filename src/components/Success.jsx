@@ -2,7 +2,8 @@
 export default function Success(){
     return(
         <div>
-            <h2>Form Başarıyla Gönderildi</h2>
+            <h2>Giriş başarıyla gerçekleşti</h2>
+            <p>Hurray!</p>
         </div>
     );
 }
